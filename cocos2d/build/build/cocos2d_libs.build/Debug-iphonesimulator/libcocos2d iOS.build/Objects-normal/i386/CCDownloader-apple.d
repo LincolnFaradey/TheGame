@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/cocos/network/CCDownloader-apple.mm \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/network/CCDownloader-apple.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/network/CCIDownloaderImpl.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/CCConsole.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/CCRef.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/platform/CCPlatformMacros.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/ccConfig.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/platform/CCPlatformConfig.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/platform/CCPlatformDefine.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/platform/ios/CCPlatformDefine-ios.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/ccMacros.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/platform/CCStdC.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/platform/ios/CCStdC-ios.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/ccRandom.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/network/CCDownloader.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/deprecated/CCString.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/deprecated/CCArray.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/ccCArray.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/cocos2d/build/../cocos/base/CCDataVisitor.h

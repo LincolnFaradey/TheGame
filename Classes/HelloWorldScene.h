@@ -23,6 +23,6 @@ public:
 
 private:
     Spaceship *_spaceship;
-    std::set<Spaceship *> _spaceships;
+    std::set<Spaceship *, SpaceshipLessThan> _spaceships;
     TheGameWebSocket *_webSocket;
 };

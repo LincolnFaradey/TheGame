@@ -33,7 +33,6 @@ Spaceship* Spaceship::create(const std::string &name, const std::string &filenam
 }
 
 int Spaceship::Compare(const Spaceship &sp) const {
-    cocos2d::log("Comparing...");
     this->_name.compare(sp._name);
 }
 
