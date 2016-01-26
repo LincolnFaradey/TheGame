@@ -28,15 +28,18 @@ public:
 
     int Compare(const Spaceship& sp) const;
 
-    bool operator()(Spaceship *lhs, Spaceship *rhs) {
+    bool operator()(Spaceship *lhs, Spaceship *rhs) const {
+        cocos2d::log("Comparing... ()");
         return lhs->_name != rhs->_name;
     }
 
     bool operator==(const Spaceship& rhs) const {
+        cocos2d::log("Comparing... ==");
         return Compare(rhs) == 0;
     }
 
     bool operator<(Spaceship& rhs) const {
+        cocos2d::log("Comparing... <");
         return Compare(rhs) < 0;
     }
 

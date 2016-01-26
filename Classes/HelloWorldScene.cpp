@@ -64,7 +64,6 @@ bool HelloWorld::init()
         }else {
             size_t setSize = _spaceships.size();
             _spaceships.insert(sp);
-
             if (_spaceships.size() != setSize) {
                 sp->setPosition(x, y);
                 this->addChild(sp);
