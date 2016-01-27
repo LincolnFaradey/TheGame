@@ -32,7 +32,6 @@ Spaceship* Spaceship::create(const std::string &name, const std::string &filenam
     return nullptr;
 }
 
-std::string &Spaceship::getShipName() { return _name; }
 
 void Spaceship::moveTo(Vec2 dest) {
     Director::getInstance()->getActionManager()->removeAllActionsFromTarget(this);

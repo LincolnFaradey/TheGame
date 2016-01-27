@@ -26,23 +26,19 @@ public:
     virtual ~Spaceship();
     static Spaceship* create(const std::string& name, const std::string& filename);
 
-    bool operator()(Spaceship *lhs, Spaceship *rhs) const {
-        cocos2d::log("Comparing... ()");
-        return lhs->_name != rhs->_name;
-    }
-
     bool operator==(const Spaceship& rhs) const {
         cocos2d::log("Comparing... ==");
-        return this->_name == rhs._name;
+        return this->_name == rhs.name();
     }
 
     bool operator<(Spaceship& rhs) const {
         cocos2d::log("Comparing... <");
-        return this->_name != rhs._name;
+        return this->_name != rhs.name();
     }
 
-
-    std::string& getShipName();
+    std::string name() const {
+        return _name;
+    }
     void moveTo(Vec2 dest);
 };
 

@@ -58,7 +58,7 @@ bool MainLevelScene::init()
         auto sp = Spaceship::create(userName, "alien.png");
         auto it = _spaceships.find(sp);
         if (it != _spaceships.end()) {
-            std::cout << "Moved ship name " << (*it)->getShipName();
+            std::cout << "Moved ship name " << (*it)->name();
             (*it)->moveTo(Vec2(x, y));
         }else {
             size_t setSize = _spaceships.size();
@@ -84,7 +84,7 @@ std::string MainLevelScene::createJSON(float x, float y) {
     auto &allocator = document.GetAllocator();
 
     document.AddMember("name",
-                       rapidjson::Value(_spaceship->getShipName().c_str(), allocator).Move(),
+                       rapidjson::Value(_spaceship->name().c_str(), allocator).Move(),
                        allocator);
     document.AddMember("x",
                        rapidjson::Value(x).Move(),

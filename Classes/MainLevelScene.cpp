@@ -1,11 +1,19 @@
 #include "MainLevelScene.h"
 #include <iostream>
+#include <algorithm>
 #include "rapidjson/document.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
 
 USING_NS_CC;
 using namespace std::chrono;
+
+std::string createName() {
+    auto time = system_clock::to_time_t(system_clock::now());
+    std::string name = std::string(std::ctime(&time));
+    name.erase(std::remove(name.begin(), name.end(), '\n'), name.end());
+    return name;
+}
 
 Scene*MainLevelScene::createScene()
 {
@@ -30,9 +38,8 @@ bool MainLevelScene::init()
 
     setBackground("terrain.jpg");
     auto winSize = Director::getInstance()->getWinSize();
-    auto time = system_clock::to_time_t(system_clock::now());
-    std::string name = std::string(std::ctime(&time));
-    _spaceship = Spaceship::create(name, "redfighter.png");
+    std::string name = createName();
+    _spaceship = Spaceship::create(createName(), "redfighter.png");
     _spaceship->setPosition(winSize.width / 2, winSize.height / 2);
 
     auto touchListener = EventListenerTouchOneByOne::create();
@@ -58,7 +65,7 @@ bool MainLevelScene::init()
         auto sp = Spaceship::create(userName, "alien.png");
         auto it = _spaceships.find(sp);
         if (it != _spaceships.end()) {
-            std::cout << "Moved ship name " << (*it)->getShipName();
+            std::cout << "Moved ship name " << (*it)->name();
             (*it)->moveTo(Vec2(x, y));
         }else {
             size_t setSize = _spaceships.size();
@@ -82,7 +89,7 @@ std::string MainLevelScene::createJSON(float x, float y) {
     auto &allocator = document.GetAllocator();
 
     document.AddMember("name",
-                       rapidjson::Value(_spaceship->getShipName().c_str(), allocator).Move(),
+                       rapidjson::Value(_spaceship->name().c_str(), allocator).Move(),
                        allocator);
     document.AddMember("x",
                        rapidjson::Value(x).Move(),
@@ -112,3 +119,4 @@ void MainLevelScene::setBackground(const char *filename) {
 
     this->addChild(bg, 0);
 }
+
