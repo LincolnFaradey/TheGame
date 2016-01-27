@@ -48,7 +48,7 @@ public:
     void moveTo(Vec2 dest);
 };
 
-struct SpaceshipLessThan : public std::binary_function<Spaceship, Spaceship, bool>
+struct SpaceshipLessThan : public std::binary_function<Spaceship *, Spaceship *, bool>
 {
     bool operator()(Spaceship* lhs, Spaceship* rhs) const
     {

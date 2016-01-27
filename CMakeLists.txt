@@ -125,14 +125,18 @@ endif( WIN32 )
 set(GAME_SRC
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
+        Classes/TheGameWebSocket.cpp
+        Classes/Spaceship.cpp
   ${PLATFORM_SPECIFIC_SRC}
-)
+        )
 
 set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
+        Classes/TheGameWebSocket.h
+        Classes/Spaceship.h
   ${PLATFORM_SPECIFIC_HEADERS}
-        Classes/TheGameWebSocket.cpp Classes/TheGameWebSocket.h)
+        )
 
 if(GAME_HEADERS)
   if ( WIN32 )

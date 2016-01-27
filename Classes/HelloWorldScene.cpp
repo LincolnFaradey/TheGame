@@ -56,7 +56,7 @@ bool HelloWorld::init()
         std::cout << "User: " << userName << std::endl
         << "x: " << x << " y: " << y << std::endl;
         auto sp = Spaceship::create(userName, "alien.png");
-        auto it = std::find(_spaceships.begin(), _spaceships.end(), sp);
+        auto it = _spaceships.find(sp);
         if (it != _spaceships.end()) {
             std::cout << "Moved ship name " << (*it)->getShipName();
             (*it)->moveTo(Vec2(x, y));
