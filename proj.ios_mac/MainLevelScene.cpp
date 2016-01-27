@@ -55,20 +55,31 @@ bool MainLevelScene::init()
 
         std::cout << "User: " << userName << std::endl
         << "x: " << x << " y: " << y << std::endl;
-        auto sp = Spaceship::create(userName, "alien.png");
-        auto it = _spaceships.find(sp);
-        if (it != _spaceships.end()) {
-            std::cout << "Moved ship name " << (*it)->name();
-            (*it)->moveTo(Vec2(x, y));
+        
+        auto it = _ships.find(userName);
+        if (it != _ships.end()) {
+            std::cout << "Moved ship name " << it->second->name();
+            it->second->moveTo(Vec2(x, y));
         }else {
-            size_t setSize = _spaceships.size();
-            cocos2d::log("Size %d", (int) setSize);
-            _spaceships.insert(sp);
-            if (_spaceships.size() != setSize) {
-                sp->setPosition(x, y);
-                this->addChild(sp);
-            }
+            auto sp = Spaceship::create(userName, "alien.png");
+            sp->setPosition(x, y);
+            _ships.insert(std::pair<std::string, Spaceship *>(userName, sp));
+            this->addChild(sp);
         }
+//        auto sp = Spaceship::create(userName, "alien.png");
+//        auto it = _spaceships.find(sp);
+//        if (it != _spaceships.end()) {
+//            std::cout << "Moved ship name " << (*it)->name();
+//            (*it)->moveTo(Vec2(x, y));
+//        }else {
+//            size_t setSize = _spaceships.size();
+//            cocos2d::log("Size %d", (int) setSize);
+//            _spaceships.insert(sp);
+//            if (_spaceships.size() != setSize) {
+//                sp->setPosition(x, y);
+//                this->addChild(sp);
+//            }
+//        }
     };
 
 

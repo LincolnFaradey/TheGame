@@ -19,7 +19,8 @@ Spaceship::~Spaceship() {
 
 Spaceship* Spaceship::create(const std::string &name, const std::string &filename) {
     Spaceship *sprite = new (std::nothrow) Spaceship(name);
-    if (sprite && sprite->initWithFile(filename))
+
+    if (sprite->initWithFile(filename))
     {
         sprite->autorelease();
         sprite->_name = name;

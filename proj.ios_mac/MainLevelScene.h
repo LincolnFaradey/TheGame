@@ -3,7 +3,8 @@
 #include "cocos2d.h"
 #include "TheGameWebSocket.h"
 #include "Spaceship.h"
-#include <set>
+#include <map>
+
 
 class MainLevelScene : public cocos2d::LayerColor
 {
@@ -23,6 +24,7 @@ public:
 
 private:
     Spaceship *_spaceship;
-    std::set<Spaceship *, SpaceshipLessThan> _spaceships;
+//    std::set<Spaceship *, SpaceshipLessThan> _spaceships;
+    std::map<std::string, Spaceship *> _ships;
     TheGameWebSocket *_webSocket;
 };

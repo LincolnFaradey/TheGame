@@ -1,19 +1,10 @@
 #include "MainLevelScene.h"
 #include <iostream>
-#include <algorithm>
 #include "rapidjson/document.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
 
 USING_NS_CC;
-using namespace std::chrono;
-
-std::string createName() {
-    auto time = system_clock::to_time_t(system_clock::now());
-    std::string name = std::string(std::ctime(&time));
-    name.erase(std::remove(name.begin(), name.end(), '\n'), name.end());
-    return name;
-}
 
 Scene*MainLevelScene::createScene()
 {
@@ -25,6 +16,14 @@ Scene*MainLevelScene::createScene()
     scene->addChild(layer);
 
     return scene;
+}
+
+using std::chrono::system_clock;
+std::string createName() {
+    auto time = system_clock::to_time_t(system_clock::now());
+    std::string name = std::string(std::ctime(&time));
+    name.erase(std::remove(name.begin(), name.end(), '\n'), name.end());
+    return name;
 }
 
 bool MainLevelScene::init()
@@ -39,7 +38,7 @@ bool MainLevelScene::init()
     setBackground("terrain.jpg");
     auto winSize = Director::getInstance()->getWinSize();
     std::string name = createName();
-    _spaceship = Spaceship::create(createName(), "redfighter.png");
+    _spaceship = Spaceship::create(name, "redfighter.png");
     _spaceship->setPosition(winSize.width / 2, winSize.height / 2);
 
     auto touchListener = EventListenerTouchOneByOne::create();
@@ -62,18 +61,29 @@ bool MainLevelScene::init()
 
         std::cout << "User: " << userName << std::endl
         << "x: " << x << " y: " << y << std::endl;
-        auto sp = Spaceship::create(userName, "alien.png");
-        auto it = _spaceships.find(sp);
-        if (it != _spaceships.end()) {
-            std::cout << "Moved ship name " << (*it)->name();
-            (*it)->moveTo(Vec2(x, y));
+//        auto sp = Spaceship::create(userName, "alien.png");
+        auto sp = _ships.at(userName);
+        if (sp != nullptr) {
+            std::cout << "Moved ship name " << sp->name();
+            sp->moveTo(Vec2(x, y));
         }else {
-            size_t setSize = _spaceships.size();
-            cocos2d::log("Size %d", (int) setSize);
-            _spaceships.insert(sp);
+            sp = Spaceship::create(userName, "alien.png");
             sp->setPosition(x, y);
+            _ships.insert(std::pair(userName, sp));
             this->addChild(sp);
         }
+
+//        auto it = _spaceships.find(sp);
+//        if (it == _spaceships.end()) {
+//            size_t setSize = _spaceships.size();
+//            cocos2d::log("Size %d", (int) setSize);
+//            _spaceships.insert(sp);
+//            sp->setPosition(x, y);
+//            this->addChild(sp);
+//        }else {
+//            std::cout << "Moved ship name " << (*it)->name();
+//            (*it)->moveTo(Vec2(x, y));
+//        }
     };
 
 

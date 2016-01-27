@@ -28,18 +28,24 @@ public:
 
     bool operator==(const Spaceship& rhs) const {
         cocos2d::log("Comparing... ==");
-        return this->_name == rhs.name();
+        return this->_name.compare(rhs.name()) == 0;
     }
 
-    bool operator<(Spaceship& rhs) const {
+    bool operator!=(const Spaceship& rhs) const {
+        cocos2d::log("Comparing... !=");
+        return this->_name.compare(rhs.name()) != 0;
+    }
+
+    bool operator<(const Spaceship& rhs) const {
         cocos2d::log("Comparing... <");
-        return this->_name != rhs.name();
+        return this->_name.compare(rhs.name()) < 0;
     }
 
     std::string name() const {
         return _name;
     }
     void moveTo(Vec2 dest);
+
 };
 
 struct SpaceshipLessThan : public std::binary_function<Spaceship *, Spaceship *, bool>
@@ -47,6 +53,6 @@ struct SpaceshipLessThan : public std::binary_function<Spaceship *, Spaceship *,
     bool operator()(Spaceship* lhs, Spaceship* rhs) const
     {
         cocos2d::log("Comparing... comparator");
-        return *lhs < *rhs;
+        return *lhs != *rhs;
     }
 };

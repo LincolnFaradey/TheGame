@@ -5,6 +5,8 @@
 #include "Spaceship.h"
 #include <set>
 
+using namespace std::chrono;
+
 class MainLevelScene : public cocos2d::LayerColor
 {
 public:
@@ -21,8 +23,9 @@ public:
 
     void setBackground(const char* filename);
 
+
 private:
     Spaceship *_spaceship;
-    std::set<Spaceship *, SpaceshipLessThan> _spaceships;
+    std::map<std::string, Spaceship *> _ships;
     TheGameWebSocket *_webSocket;
 };
