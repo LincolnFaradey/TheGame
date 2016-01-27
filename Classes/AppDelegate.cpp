@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "MainLevelScene.h"
 
 USING_NS_CC;
 
@@ -48,7 +48,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
                                     smallResource.size.width,
                                     ResolutionPolicy::NO_BORDER);
     director->setDisplayStats(true);
-    auto scene = HelloWorld::createScene();
+    auto scene = MainLevelScene::createScene();
     director->runWithScene(scene);
 //    director->setAnimationInterval(1/60.f);
 
