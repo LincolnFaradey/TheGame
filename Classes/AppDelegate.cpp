@@ -66,7 +66,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     } else {
         realResource = smallResource;
     }
-    director->setContentScaleFactor(MIN(realResource.size.height/designResource.size.height, realResource.size.width/designResource.size.width));
+    director->setContentScaleFactor(MIN(realResource.size.height/designResource.size.height,
+                                        realResource.size.width/designResource.size.width));
     searchPath.push_back(realResource.directory);
     auto fileUtils = FileUtils::getInstance();
     fileUtils->setSearchPaths(searchPath);

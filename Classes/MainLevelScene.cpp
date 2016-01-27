@@ -64,10 +64,8 @@ bool MainLevelScene::init()
             size_t setSize = _spaceships.size();
             cocos2d::log("Size %d", (int) setSize);
             _spaceships.insert(sp);
-            if (_spaceships.size() != setSize) {
-                sp->setPosition(x, y);
-                this->addChild(sp);
-            }
+            sp->setPosition(x, y);
+            this->addChild(sp);
         }
     };
 

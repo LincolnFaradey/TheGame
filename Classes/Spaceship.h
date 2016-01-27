@@ -26,21 +26,19 @@ public:
     virtual ~Spaceship();
     static Spaceship* create(const std::string& name, const std::string& filename);
 
-    int Compare(const Spaceship& sp) const;
-
     bool operator()(Spaceship *lhs, Spaceship *rhs) const {
         cocos2d::log("Comparing... ()");
         return lhs->_name != rhs->_name;
     }
 
-    bool operator==(const Spaceship* rhs) const {
+    bool operator==(const Spaceship& rhs) const {
         cocos2d::log("Comparing... ==");
-        return Compare(*rhs) == 0;
+        return this->_name == rhs._name;
     }
 
-    bool operator<(Spaceship* rhs) const {
+    bool operator<(Spaceship& rhs) const {
         cocos2d::log("Comparing... <");
-        return Compare(*rhs) < 0;
+        return this->_name != rhs._name;
     }
 
 
@@ -52,6 +50,7 @@ struct SpaceshipLessThan : public std::binary_function<Spaceship *, Spaceship *,
 {
     bool operator()(Spaceship* lhs, Spaceship* rhs) const
     {
-        return lhs->getShipName() != rhs->getShipName();
+        cocos2d::log("Comparing... comparator");
+        return *lhs < *rhs;
     }
 };

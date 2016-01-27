@@ -32,14 +32,10 @@ Spaceship* Spaceship::create(const std::string &name, const std::string &filenam
     return nullptr;
 }
 
-int Spaceship::Compare(const Spaceship &sp) const {
-    this->_name.compare(sp._name);
-}
-
 std::string &Spaceship::getShipName() { return _name; }
 
 void Spaceship::moveTo(Vec2 dest) {
-    Director::getInstance()->getActionManager()->removeAllActions();
+    Director::getInstance()->getActionManager()->removeAllActionsFromTarget(this);
     auto spriteLocation = this->getPosition();
     float distance = spriteLocation.distance(dest);
     auto direction = dest - spriteLocation;
@@ -57,7 +53,9 @@ void Spaceship::moveTo(Vec2 dest) {
 
     actions.pushBack(actionRotate);
     actions.pushBack(actionMove);
-    auto sequence = cocos2d::Sequence::create(actions);
-    this->runAction(sequence);
+    auto spawn = cocos2d::Spawn::createWithTwoActions(actionRotate, actionMove);
+    this->runAction(spawn);
+//    auto sequence = cocos2d::Sequence::create(actions);
+//    this->runAction(sequence);
 }
 

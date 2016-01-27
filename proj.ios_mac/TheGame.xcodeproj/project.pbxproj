@@ -51,6 +51,7 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		77427A1C1C5889A7008E40D6 /* MainLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 778825A61C587BC900883B08 /* MainLevelScene.cpp */; };
 		778130C71C5494CC00742B49 /* TheGameWebSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 778130C51C5494CC00742B49 /* TheGameWebSocket.cpp */; };
 		778130C81C5494E500742B49 /* TheGameWebSocket.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 778130C51C5494CC00742B49 /* TheGameWebSocket.cpp */; };
 		778130CD1C55B9B900742B49 /* redfighter.png in Resources */ = {isa = PBXBuildFile; fileRef = 778130CC1C55B9B900742B49 /* redfighter.png */; };
@@ -61,7 +62,6 @@
 		778130D41C55BEBF00742B49 /* terrain.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 778130D21C55BEBF00742B49 /* terrain.jpg */; };
 		778130DD1C56927800742B49 /* Spaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 778130DB1C56927800742B49 /* Spaceship.cpp */; };
 		778130DE1C56927800742B49 /* Spaceship.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 778130DB1C56927800742B49 /* Spaceship.cpp */; };
-		778825AB1C587D3B00883B08 /* TheGameWebSocket.h in Sources */ = {isa = PBXBuildFile; fileRef = 778130C61C5494CC00742B49 /* TheGameWebSocket.h */; };
 		778825AC1C587D4400883B08 /* MainLevelScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 778825A61C587BC900883B08 /* MainLevelScene.cpp */; };
 		778825B01C5881CB00883B08 /* rapidjson in Resources */ = {isa = PBXBuildFile; fileRef = 778825AF1C5881CB00883B08 /* rapidjson */; };
 		778825B11C5881E200883B08 /* rapidjson in Resources */ = {isa = PBXBuildFile; fileRef = 778825AF1C5881CB00883B08 /* rapidjson */; };
@@ -512,7 +512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				778825AB1C587D3B00883B08 /* TheGameWebSocket.h in Sources */,
+				77427A1C1C5889A7008E40D6 /* MainLevelScene.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
