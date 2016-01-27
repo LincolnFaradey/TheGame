@@ -59,17 +59,14 @@ bool MainLevelScene::init()
         float x = (float)d["x"].GetDouble();
         float y = (float)d["y"].GetDouble();
 
-        std::cout << "User: " << userName << std::endl
-        << "x: " << x << " y: " << y << std::endl;
-//        auto sp = Spaceship::create(userName, "alien.png");
-        auto sp = _ships.at(userName);
-        if (sp != nullptr) {
-            std::cout << "Moved ship name " << sp->name();
-            sp->moveTo(Vec2(x, y));
+        auto it = _ships.find(userName);
+        if (it != _ships.end()) {
+            std::cout << "Moved ship name " << it->second->name();
+            it->second->moveTo(Vec2(x, y));
         }else {
-            sp = Spaceship::create(userName, "alien.png");
+            auto sp = Spaceship::create(userName, "alien.png");
             sp->setPosition(x, y);
-            _ships.insert(std::pair(userName, sp));
+            _ships.insert(std::pair<std::string, Spaceship *>(userName, sp));
             this->addChild(sp);
         }
 

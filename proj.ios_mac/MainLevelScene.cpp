@@ -52,9 +52,6 @@ bool MainLevelScene::init()
         std::string userName = d["name"].GetString();
         float x = (float)d["x"].GetDouble();
         float y = (float)d["y"].GetDouble();
-
-        std::cout << "User: " << userName << std::endl
-        << "x: " << x << " y: " << y << std::endl;
         
         auto it = _ships.find(userName);
         if (it != _ships.end()) {
