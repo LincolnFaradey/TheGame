@@ -22,4 +22,35 @@ dependencies: \
   /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/stringbuffer.h \
   /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/writer.h \
   /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/dtoa.h \
-  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/itoa.h
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/itoa.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/CocosGUI.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIWidget.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UILayoutParameter.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/GUIExport.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/GUIDefine.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/base/ObjectFactory.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UILayout.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIButton.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UICheckBox.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIAbstractCheckButton.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIRadioButton.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIImageView.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIText.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UITextAtlas.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UILoadingBar.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIScrollView.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIListView.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UISlider.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UITextField.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UITextBMFont.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIPageView.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIHelper.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIRichText.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIHBox.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIVBox.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIRelativeBox.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIDeprecated.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIScale9Sprite.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UIEditBox/UIEditBox.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/ui/UILayoutComponent.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/editor-support/cocostudio/CocosStudioExtension.h

@@ -4,7 +4,9 @@
 #include "TheGameWebSocket.h"
 #include "Spaceship.h"
 #include <map>
+#include <ui/CocosGUI.h>
 
+USING_NS_CC;
 
 class MainLevelScene : public cocos2d::LayerColor
 {
@@ -14,17 +16,29 @@ public:
 
     CREATE_FUNC(MainLevelScene);
 
-//    virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *unused_event);
-
     virtual void update(float delta) override;
 
     std::string createJSON(float x, float y);
-
-    void setBackground(const char* filename);
+    
+    void buttonPressed(Ref *sender, ui::Button::TouchEventType touchEvent);
 
 private:
     Spaceship *_spaceship;
-//    std::set<Spaceship *, SpaceshipLessThan> _spaceships;
     std::map<std::string, Spaceship *> _ships;
     TheGameWebSocket *_webSocket;
 };
+
+
+
+
+void setBackground(cocos2d::Layer *layer, const char *filename) {
+    auto winSize = Director::getInstance()->getWinSize();
+    auto bg = Sprite::create(filename);
+    bg->setScaleX((winSize.width
+                   / bg->getContentSize().width) * 1);
+    bg->setScaleY((winSize.height
+                   / bg->getContentSize().height) * 1);
+    bg->setAnchorPoint(Vec2(0, 0));
+    
+    layer->addChild(bg, 0);
+}

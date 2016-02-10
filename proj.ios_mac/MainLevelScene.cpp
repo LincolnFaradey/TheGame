@@ -4,8 +4,12 @@
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
 
-USING_NS_CC;
+
+
 using namespace std::chrono;
+
+const std::string remoteServerAddr = "ws://188.226.135.225:8080";
+const std::string localServerAddr = "ws://127.0.0.1:8080";
 
 Scene* MainLevelScene::createScene()
 {
@@ -15,7 +19,6 @@ Scene* MainLevelScene::createScene()
 //    scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_SHAPE);
 
     scene->addChild(layer);
-
     return scene;
 }
 
@@ -25,15 +28,25 @@ bool MainLevelScene::init()
     {
         return false;
     }
-    _webSocket = TheGameWebSocket::create("ws://188.226.135.225:8080");
+    setBackground(this, "terrain.jpg");
+    
+    _webSocket = TheGameWebSocket::create(localServerAddr);
     _webSocket->connect();
 
-    setBackground("terrain.jpg");
     auto winSize = Director::getInstance()->getWinSize();
+    
     auto time = system_clock::to_time_t(system_clock::now());
     std::string name = std::string(std::ctime(&time));
+    
     _spaceship = Spaceship::create(name, "redfighter.png");
     _spaceship->setPosition(winSize.width / 2, winSize.height / 2);
+
+    auto button = ui::Button::create("fire_button.png");
+    button->setPosition(Vec2(150.f, 150.f));
+    button->setTouchEnabled(true);
+    button->addTouchEventListener(CC_CALLBACK_2(MainLevelScene::buttonPressed, this));
+
+    this->addChild(button, 100);
 
     auto touchListener = EventListenerTouchOneByOne::create();
     touchListener->onTouchBegan = [&](Touch *touch, Event *event) -> bool {
@@ -45,10 +58,25 @@ bool MainLevelScene::init()
 
         return true;
     };
+    
 
     _webSocket->receive = [&](std::string &json) {
         rapidjson::Document d;
         d.Parse(json.c_str());
+        if (d.HasMember("method")) {
+            std::string method = d["method"].GetString();
+            if (method == "destroy") {
+                auto it = _ships.find(d["name"].GetString());
+                
+                if (it == _ships.end())
+                    return;
+                
+                auto theShip = it->second;
+                theShip->removeFromParent();
+                _ships.erase(it);
+            }
+            return;
+        }
         std::string userName = d["name"].GetString();
         float x = (float)d["x"].GetDouble();
         float y = (float)d["y"].GetDouble();
@@ -63,20 +91,6 @@ bool MainLevelScene::init()
             _ships.insert(std::pair<std::string, Spaceship *>(userName, sp));
             this->addChild(sp);
         }
-//        auto sp = Spaceship::create(userName, "alien.png");
-//        auto it = _spaceships.find(sp);
-//        if (it != _spaceships.end()) {
-//            std::cout << "Moved ship name " << (*it)->name();
-//            (*it)->moveTo(Vec2(x, y));
-//        }else {
-//            size_t setSize = _spaceships.size();
-//            cocos2d::log("Size %d", (int) setSize);
-//            _spaceships.insert(sp);
-//            if (_spaceships.size() != setSize) {
-//                sp->setPosition(x, y);
-//                this->addChild(sp);
-//            }
-//        }
     };
 
 
@@ -84,6 +98,17 @@ bool MainLevelScene::init()
     this->addChild(_spaceship);
     return true;
 }
+
+void MainLevelScene::buttonPressed(cocos2d::Ref *sender, cocos2d::ui::Button::TouchEventType touchEvent) {
+    switch (touchEvent) {
+        case ui::Widget::TouchEventType::BEGAN:
+            log("Fire!");
+            break;
+        default:
+            break;
+    }
+}
+
 
 std::string MainLevelScene::createJSON(float x, float y) {
     rapidjson::Document document;
@@ -113,12 +138,3 @@ void MainLevelScene::update(float delta) {
 
 }
 
-void MainLevelScene::setBackground(const char *filename) {
-    auto winSize = Director::getInstance()->getWinSize();
-    auto bg = Sprite::create(filename);
-    bg->setScaleX((winSize.width / bg->getContentSize().width) * 1);
-    bg->setScaleY((winSize.height / bg->getContentSize().height) * 1);
-    bg->setAnchorPoint(Vec2(0, 0));
-
-    this->addChild(bg, 0);
-}

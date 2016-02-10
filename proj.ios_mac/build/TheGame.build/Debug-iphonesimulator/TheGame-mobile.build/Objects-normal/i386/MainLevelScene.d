@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/MainLevelScene.cpp \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/MainLevelScene.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/Classes/TheGameWebSocket.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/../cocos2d/cocos/network/WebSocket.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/Classes/Spaceship.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/document.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/reader.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/rapidjson.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/allocators.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/encodings.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/meta.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/stack.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/swap.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/strtod.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/ieee754.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/biginteger.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/diyfp.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/pow10.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/error/error.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/strfunc.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/stringbuffer.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/writer.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/dtoa.h \
+  /Users/faraday/Documents/Developer/Cocos/TheGame/proj.ios_mac/rapidjson/internal/itoa.h

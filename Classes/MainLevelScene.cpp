@@ -3,6 +3,7 @@
 #include "rapidjson/document.h"
 #include "rapidjson/stringbuffer.h"
 #include "rapidjson/writer.h"
+#include <ui/CocosGUI.h>
 
 USING_NS_CC;
 
@@ -52,6 +53,15 @@ bool MainLevelScene::init()
         return true;
     };
 
+    auto button = ui::Button::create("fire_button.png");
+    button->setPosition(Vec2(150.f, 150.f));
+    button->setTouchEnabled(true);
+
+    button->setOnEnterCallback([](){
+        cocos2d::log("Fire");
+    });
+    this->addChild(button);
+
     _webSocket->receive = [&](std::string &json) {
         rapidjson::Document d;
         d.Parse(json.c_str());
@@ -66,26 +76,16 @@ bool MainLevelScene::init()
         }else {
             auto sp = Spaceship::create(userName, "alien.png");
             sp->setPosition(x, y);
+
             _ships.insert(std::pair<std::string, Spaceship *>(userName, sp));
+            sp->retain();
             this->addChild(sp);
         }
-
-//        auto it = _spaceships.find(sp);
-//        if (it == _spaceships.end()) {
-//            size_t setSize = _spaceships.size();
-//            cocos2d::log("Size %d", (int) setSize);
-//            _spaceships.insert(sp);
-//            sp->setPosition(x, y);
-//            this->addChild(sp);
-//        }else {
-//            std::cout << "Moved ship name " << (*it)->name();
-//            (*it)->moveTo(Vec2(x, y));
-//        }
     };
-
-
     _eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, _spaceship);
     this->addChild(_spaceship);
+
+
     return true;
 }
 
@@ -114,7 +114,6 @@ std::string MainLevelScene::createJSON(float x, float y) {
 
 
 void MainLevelScene::update(float delta) {
-
 }
 
 void MainLevelScene::setBackground(const char *filename) {
